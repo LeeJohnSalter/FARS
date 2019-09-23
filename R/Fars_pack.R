@@ -99,7 +99,7 @@ make_filename <- function(year) {
 #'    fars_read_years(c(2013,2014,2015))
 #'    fars_read_years(c("2013","2014","2015"))
 #'
-#' @importFrom magrittr %>%
+#@importFrom magrittr %>%
 #'
 #' @seealso
 #'  \link{fars_read_years}
@@ -153,7 +153,7 @@ fars_read_years <- function(years) {
 #'    fars_summarize_years(c("2013","2014","2015"))
 #'
 #'
-#' @importFrom magrittr %>%
+#@importFrom magrittr %>%
 #'
 #' @seealso
 #'  \link{fars_read_years}
