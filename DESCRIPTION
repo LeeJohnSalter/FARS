@@ -2,10 +2,10 @@ Package: fars
 Type: Package
 Title: Functions for summarising FARS data 
 Version: 0.1.0
-Author: Who wrote it
+Author: Lee Salter
 Maintainer: The package maintainer <lee.salter@saandl.co.uk>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: he package contains a set of functions designed to provide basic 
+    analysis of the FARS - Fatality Analysis Reporting System. 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
