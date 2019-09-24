@@ -7,7 +7,7 @@
 fars_read_years(years)
 }
 \arguments{
-\item{year}{-   Years as a 4 digit number.
+\item{years}{-   Years as a 4 digit number.
 The year  can be provided as single year, as a vector or list of years}
 }
 \value{
@@ -26,10 +26,11 @@ will call an warning :
 Code needs to be updated to unclude a directory option as an input parameter
 }
 \examples{
+\dontrun{
    fars_read_years(2013)
    fars_read_years(c(2013,2014,2015))
    fars_read_years(c("2013","2014","2015"))
-
+}
 }
 \references{
 The US National Highway Traffic Safety Administration's Fatality Analysis Reporting System,

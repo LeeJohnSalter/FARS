@@ -24,8 +24,9 @@ Errors occor when an invalid State.num is provided
 Other errors can be linked to the fars_read function.
 }
 \examples{
+\dontrun{
    fars_map_state(10,2013)
-
+}
 
 }
 \references{

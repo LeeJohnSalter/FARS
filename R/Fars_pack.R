@@ -12,10 +12,11 @@
 #' @note The function first checks for the existence of a file so will stop if the file is not found
 #'
 #' @examples
+#' \dontrun{
 #'    fars_read(filename)
 #'    fars_read(data/filename.csv)
 #'    my_data<- fars_read(data/filename.csv)
-#'
+#' }
 #' @seealso
 #'  \link{fars_read_years}
 #'  \link{fars_summarize_years}
@@ -55,10 +56,11 @@ fars_read <- function(filename) {
 #'
 #'
 #' @examples
+#' \dontrun{
 #'    make_filename("2019")
 #'    make_filename(2019)
 #'    make_filename(2019.0)
-#'
+#' }
 #' @seealso
 #'  \link{fars_read_years}
 #'  \link{fars_map_state}
@@ -80,7 +82,7 @@ make_filename <- function(year) {
 #' This reads one or more years Fatality Analysis Reporting System (FARS) data
 #' created from the read_fars function containing only the Month and year from the data
 #'
-#' @param year -   Years as a 4 digit number.
+#' @param years -   Years as a 4 digit number.
 #'                 The year  can be provided as single year, as a vector or list of years
 #'
 #' @return Dataframe  - containing only the year and month from the underlying FARS data.
@@ -93,13 +95,14 @@ make_filename <- function(year) {
 #'
 #' Code needs to be updated to unclude a directory option as an input parameter
 #'
-#'
 #' @examples
+#' \dontrun{
 #'    fars_read_years(2013)
 #'    fars_read_years(c(2013,2014,2015))
 #'    fars_read_years(c("2013","2014","2015"))
+#' }
+#' @import dplyr
 #'
-#@importFrom magrittr %>%
 #'
 #' @seealso
 #'  \link{fars_read_years}
@@ -115,6 +118,7 @@ make_filename <- function(year) {
 #' @export
 
 fars_read_years <- function(years) {
+  MONTH <- NULL
   lapply(years, function(year) {
     file <- make_filename(year)
     tryCatch({
@@ -134,7 +138,7 @@ fars_read_years <- function(years) {
 #' and  binds these dataframes together, summarizing the data to show the
 #' frequency of accidents for each month, with seperate columns for each year specified.
 
-#' @param year -   Years as a 4 digit number.
+#' @param years -   Years as a 4 digit number.
 #'                 The year  can be provided as single year, as a vector or list of years
 #'
 #' @return       Dataframe containing:  Month, Year1,[Year2]..[YearN]
@@ -146,14 +150,13 @@ fars_read_years <- function(years) {
 #' Requires the use of the pipe function from the magrittr library
 #' Code needs to be updated to unclude a directory option as an input parameter
 #'
-#'
 #' @examples
+#' \dontrun{
 #'    fars_summarize_years(2013)
 #'    fars_summarize_years(c(2013,2014,2015))
 #'    fars_summarize_years(c("2013","2014","2015"))
+#' }
 #'
-#'
-#@importFrom magrittr %>%
 #'
 #' @seealso
 #'  \link{fars_read_years}
@@ -169,6 +172,7 @@ fars_read_years <- function(years) {
 #' @export
 #'
 fars_summarize_years <- function(years) {
+  year<-MONTH<-n<-NULL
   dat_list <- fars_read_years(years)
   dplyr::bind_rows(dat_list) %>%
     dplyr::group_by(year, MONTH) %>%
@@ -192,8 +196,9 @@ fars_summarize_years <- function(years) {
 #' Other errors can be linked to the fars_read function.
 #'
 #' @examples
+#' \dontrun{
 #'    fars_map_state(10,2013)
-#'
+#' }
 #'
 #' @seealso
 #'  \link{make_filename}
@@ -207,6 +212,7 @@ fars_summarize_years <- function(years) {
 #'
 #' @export
 fars_map_state <- function(state.num, year) {
+  STATE <- NULL
   filename <- make_filename(year)
   data <- fars_read(filename)
   state.num <- as.integer(state.num)

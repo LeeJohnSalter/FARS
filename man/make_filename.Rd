@@ -23,10 +23,11 @@ The use of any non-numeric data will therefore cause the function to fail with a
 warning : NAs introduced by coercion
 }
 \examples{
+\dontrun{
    make_filename("2019")
    make_filename(2019)
    make_filename(2019.0)
-
+}
 }
 \references{
 The US National Highway Traffic Safety Administration's Fatality Analysis Reporting System,

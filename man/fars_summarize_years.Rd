@@ -7,7 +7,7 @@
 fars_summarize_years(years)
 }
 \arguments{
-\item{year}{-   Years as a 4 digit number.
+\item{years}{-   Years as a 4 digit number.
 The year  can be provided as single year, as a vector or list of years}
 }
 \value{
@@ -26,9 +26,11 @@ Requires the use of the pipe function from the magrittr library
 Code needs to be updated to unclude a directory option as an input parameter
 }
 \examples{
+\dontrun{
    fars_summarize_years(2013)
    fars_summarize_years(c(2013,2014,2015))
    fars_summarize_years(c("2013","2014","2015"))
+}
 
 
 }

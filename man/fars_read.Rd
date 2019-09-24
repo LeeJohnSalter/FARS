@@ -22,10 +22,11 @@ The function is used throughout the set of fars_ functions
 The function first checks for the existence of a file so will stop if the file is not found
 }
 \examples{
+\dontrun{
    fars_read(filename)
    fars_read(data/filename.csv)
    my_data<- fars_read(data/filename.csv)
-
+}
 }
 \references{
 The US National Highway Traffic Safety Administration's Fatality Analysis Reporting System,
