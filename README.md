@@ -1,3 +1,48 @@
 [![Build Status](https://travis-ci.org/LeeJohnSalter/fars.svg?branch=master)](https://travis-ci.org/LeeJohnSalter/fars)
 
-[include](File:./vignettes/fars_overview.Rmd)
+```This vignette gives a brief overview of the fars package functionality. 
+The package contains a set of functions designed to provide basic analysis of the FARS - Fatality Analysis Reporting System. 
+FARS is a nationwide census providing NHTSA, Congress and the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes. [{http://www.nhtsa.gov/Data/Fatality-Analysis-Reporting-System-(FARS)]
+
+## Package functions
+
+There are three exported functions that have been made available to the  users:
+
+- `fars_read()`
+- `fars_summarize_years()`
+- `fars_map_state()`
+
+A short description with examples of how to use these functions is provided. 
+These examples use data that has been provided as part of the package, stored within`\extdata` folder, containing the raw FARS data for the years 2013-2015.
+
+## Read FARS data files
+
+The function `fars_read()` provides a way  to read data from a file path provided as an argument. It returns a 'dataframe with loaded data:
+
+```{r fars_read_example, eval=FALSE}
+filename <- system.file("extdata/accident_2013.csv.bz2", package = "fars")
+fars_read(filename)
+```
+
+## Summarize number of accidents
+
+The next function `fars_summarize_years()` takes a vector or list of years (numeric/integer values) as an argument and if the corresponding files with data are available, it returns a pivot table with number of accidents per year and month. The data files need to be located in the working directory.
+```{r fars_summarize_years_example ,eval=FALSE}
+setwd(system.file("extdata", package = "fars"))
+fars_summarize_years(2013:2015)
+```
+
+## Plot accident locations
+
+The last function available in the package, `fars_map_state()` takes a state index and year as arguments and returns a plot of the state with accident locations. The state indices need to correspond available indeces from the data set. Here are some examples:
+
+```{r  Example of fars_map_state ,eval=FALSE}
+setwd(system.file("extdata", package = "fars"))
+fars_map_state(45, 2015)
+```
+
+Note that again, the data file needs to be present in the working directory. 
+
+```{r setup ,eval=FALSE}
+library(fars)
+```
